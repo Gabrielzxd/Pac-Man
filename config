@@ -1,0 +1,3 @@
+vim.opt.tabstop = vim.opt.tabstop:get() * 2
+vim.opt.shiftwidth = vim.opt.shiftwidth:get() * 2
+
