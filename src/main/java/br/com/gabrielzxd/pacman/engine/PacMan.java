@@ -1,3 +1,5 @@
+package br.com.gabrielzxd.pacman.engine;
+
 public class PacMan{
     private int x;
     private int y;
@@ -18,23 +20,24 @@ public class PacMan{
         this.y = y;
     }
 
-    public void moveHorizontal(int x, Movimento movimento){
-        if (movimento == Movimento.LEFT){
+    public void moveHorizontal(int x, Move move){
+        if (move == Move.LEFT){
             this.x = x - 1;
         }
-        if (movimento == Movimento.RIGHT){
+        if (move == Move.RIGHT){
             this.x = x + 1;
         }
     }
 
-    public void moveVertical(int y, Movimento movimento){
-        if (movimento == Movimento.UP){
+    public void moveVertical(int y, Move move){
+        if (move == Move.UP){
             this.y = y + 1;
         }
-        if (movimento == Movimento.DOWN){
+        if (move == Move.DOWN){
             this.y = y - 1;
         }
     }
 
 
 }
+
