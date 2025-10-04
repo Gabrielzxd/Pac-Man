@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, x = None, y = None):
+    def __init__(self, id, x = None, y = None):
         self.id = id
         self.x = x
         self.y = y
@@ -17,7 +17,7 @@ class Graph:
         self.addNode(origin)
         self.addNode(destination)
 
-        if destination in self.nodes[origin].neighbors:
+        if destination not in self.nodes[origin].neighbors:
             self.nodes[origin].neighbors.append(destination)
 
         if origin not in self.nodes[destination].neighbors:
