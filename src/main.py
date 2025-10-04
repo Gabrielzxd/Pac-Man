@@ -1,11 +1,12 @@
 import pygame
 from pygame.locals import *
 from sys import exit
+from Constants import *
 
 pygame.init()
 
 width, height = 640, 480
-x = width / 2
+x = width / 2   
 y = height / 2
 FPS = 60
 screen = pygame.display.set_mode((width, height))

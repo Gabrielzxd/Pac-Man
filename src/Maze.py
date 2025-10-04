@@ -1,3 +1,4 @@
+from Graph_utils import *
 from Move import *
 
 class Maze:
