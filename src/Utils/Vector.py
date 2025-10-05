@@ -32,16 +32,16 @@ class Vector:
     def magnitude(self):
         return math.sqrt(self.x ** 2 + self.y ** 2)
 
-    def magnitudeSquared(self):
+    def magnitude_squared(self):
         return self.x**2 + self.y**2
 
     def copy(self):
         return Vector(self.x, self.y)
 
-    def asTuple(self):
+    def as_tuple(self):
         return self.x, self.y
 
-    def asInt(self):
+    def as_int(self):
         return int(self.x), int(self.y)
 
     def __str__(self):

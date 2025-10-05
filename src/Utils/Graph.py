@@ -9,13 +9,13 @@ class Graph:
     def __init__(self):
         self.nodes = {}
 
-    def addNode(self, id, x = None, y = None):
+    def add_node(self, id, x = None, y = None):
         if id not in self.nodes:
             self.nodes[id] = Node(id, x, y)
 
-    def addEdge(self, origin, destination):
-        self.addNode(origin)
-        self.addNode(destination)
+    def add_edge(self, origin, destination):
+        self.add_node(origin)
+        self.add_node(destination)
 
         if destination not in self.nodes[origin].neighbors:
             self.nodes[origin].neighbors.append(destination)
@@ -23,7 +23,7 @@ class Graph:
         if origin not in self.nodes[destination].neighbors:
             self.nodes[destination].neighbors.append(origin)
 
-    def getEdge(self, id):
+    def get_edge(self, id):
         if id in self.nodes:
             return self.nodes[id].neighbors
         return []
