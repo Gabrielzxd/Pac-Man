@@ -1,4 +1,4 @@
-from Graph_utils import *
+from Graph_utils import Node, Graph
 from Move import *
 
 class Maze:
@@ -23,6 +23,22 @@ class Maze:
                         self.map[i][j] = 0
                 i = i + 1
                 content = file.readline()
+
+    def createGraph(self):
+        graph = Graph()
+        for i in range(self.Row):
+            for j in range(self.Col):
+                if self.map[i][j] == 1 or self.map[i][j] == 0:
+                    graph.addNode((i, j), i, j)
+                    if i + 1 < self.Row and (self.map[i+1][j] == 1 or self.map[i+1][j] == 0):
+                        graph.addEdge((i, j), (i + 1, j))
+                    if i - 1 >= 0 and (self.map[i-1][j] == 1 or self.map[i-1][j] == 0):
+                        graph.addEdge((i, j), (i - 1, j))
+                    if j + 1 < self.Col and (self.map[i][j+1] == 1 or self.map[i][j+1] == 0):
+                        graph.addEdge((i, j), (i, j + 1))
+                    if j - 1 >= 0 and (self.map[i][j-1] == 1 or self.map[i][j-1] == 0):
+                        graph.addEdge((i, j), (i, j - 1))
+        return graph
 
     def isWall(self, move: Move, x: int, y: int) -> bool:
         match move:
