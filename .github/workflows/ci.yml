@@ -1,4 +1,5 @@
-name: CI Unit Testing CI with Python Unittest
+name: Python CI with Unittest
+
 on:
   push:
     branches: ["**"]
@@ -15,7 +16,7 @@ jobs:
       - name: Configure Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.13.6'
+          python-version: '3.13'
 
       - name: Install dependencies
         run: |
