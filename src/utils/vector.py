@@ -35,6 +35,9 @@ class Vector:
     def magnitude_squared(self):
         return self.x**2 + self.y**2
 
+    def distance_between_two_points(self, point):
+        return (self.x - point.x) ** 2 + (self.y - point.y) ** 2
+
     def copy(self):
         return Vector(self.x, self.y)
 

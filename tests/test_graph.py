@@ -1,6 +1,6 @@
 import unittest
 
-from src.Utils.Graph import Graph
+from src.utils.graph import Graph
 
 
 class TestGraph(unittest.TestCase):

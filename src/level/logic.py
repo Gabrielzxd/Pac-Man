@@ -1,5 +1,5 @@
-from src.Utils.Graph import Graph
-from Move import *
+from src.utils.graph import Graph
+from move import *
 
 class Maze:
     def __init__(self, path_maze: str):

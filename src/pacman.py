@@ -1,4 +1,4 @@
-from Move import *
+from move import *
 
 class Pacman:
     def __init__(self, start_pos):
