@@ -1,5 +1,5 @@
 from src.utils.graph import Graph
-from move import *
+from src.move import *
 
 class Maze:
     def __init__(self, path_maze: str):
@@ -21,6 +21,8 @@ class Maze:
                         self.map[i][j] = 1
                     if content[j] == '-':
                         self.map[i][j] = 0
+                    if content[j] == '+':
+                        self.map[i][j] = 2
                 i = i + 1
                 content = file.readline()
 
@@ -30,25 +32,25 @@ class Maze:
             for j in range(self.Col):
                 if self.map[i][j] == 1 or self.map[i][j] == 0:
                     graph.add_node((i, j), i, j)
-                    if i + 1 < self.Row and (self.map[i+1][j] == 1 or self.map[i+1][j] == 0):
+                    if i + 1 < self.Row and (self.map[i+1][j] in (0, 1, 2)):
                         graph.add_edge((i, j), (i + 1, j))
-                    if i - 1 >= 0 and (self.map[i-1][j] == 1 or self.map[i-1][j] == 0):
+                    if i - 1 >= 0 and (self.map[i-1][j] in (0, 1, 2)):
                         graph.add_edge((i, j), (i - 1, j))
-                    if j + 1 < self.Col and (self.map[i][j+1] == 1 or self.map[i][j+1] == 0):
+                    if j + 1 < self.Col and (self.map[i][j+1] in (0, 1, 2)):
                         graph.add_edge((i, j), (i, j + 1))
-                    if j - 1 >= 0 and (self.map[i][j-1] == 1 or self.map[i][j-1] == 0):
+                    if j - 1 >= 0 and (self.map[i][j-1] in (0, 1, 2)):
                         graph.add_edge((i, j), (i, j - 1))
         return graph
 
-    def is_wall(self, move: Move, x: int, y: int) -> bool:
+    def is_wall(self, move, x: int, y: int) -> bool:
         match move:
-            case Move.RIGHT:
+            case move.RIGHT:
                 return self.map[x+1][y] == -1
-            case Move.LEFT:
+            case move.LEFT:
                 return self.map[x-1][y] == -1
-            case Move.UP:
+            case move.UP:
                 return self.map[x][y-1] == -1
-            case Move.DOWN:
+            case move.DOWN:
                 return self.map[x][y+1] == -1
             case _:
                 return False
