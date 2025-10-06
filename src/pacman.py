@@ -6,4 +6,4 @@ class Pacman:
         self.direction = (0,0)
         self.score = 0
 
-    
+    #teste
