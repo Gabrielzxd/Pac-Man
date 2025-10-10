@@ -3,7 +3,7 @@ from src.move import *
 
 class Maze:
     def __init__(self, path_maze: str):
-        self.Row = 32
+        self.Row = 31
         self.Col = 28
         self.map = [[None for _ in range (self.Col)] for _ in range (self.Row)]
         self._load_maze(path_maze)
@@ -42,7 +42,7 @@ class Maze:
                         graph.add_edge((i, j), (i, j - 1))
         return graph
 
-    def is_wall(self, move, x: int, y: int) -> bool:
+    def is_wall(self, move: Move, x: int, y: int) -> bool:
         match move:
             case move.RIGHT:
                 return self.map[x+1][y] == -1
