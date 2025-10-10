@@ -1,12 +1,3 @@
-from sprites import SpriteSheet
-
-sprite = SpriteSheet("src/assets/graphics/tileset.png", 8, 8, 1)
-
-tile_catalog = []
-for y in range(3):
-    for x in range(16):
-        tile_catalog.append(sprite.get_sprite(x, y))
-
 edge_top_right = 0
 edge_top_left = 1
 wall_right_vertical = 2
@@ -31,8 +22,8 @@ wall_single_high_1 = 20
 wall_single_high_2 = 21
 edge_inner_above_right = 22
 edge_inner_above_left = 23
-wall_single_vertical_1 = 24
-wall_single_vertical_2 = 25
+wall_single_vertical_left = 24
+wall_single_vertical_right = 25
 edge_inner_high_right_1 = 26
 edge_inner_high_left_1 = 27
 ninety_degree_above_right = 28
@@ -55,4 +46,3 @@ empty = 44
 tiny_pellet = 45
 pellet = 46
 big_pellet = 47
-
