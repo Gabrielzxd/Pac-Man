@@ -1,5 +1,5 @@
 import pygame
-from sprites import SpriteSheet
+from sprite_loader import SpriteSheet
 
 def draw_maze(self, screen, player, ghosts_list):
     screen.fill((0,0,0))

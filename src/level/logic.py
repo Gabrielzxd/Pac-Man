@@ -1,5 +1,5 @@
 from src.utils.graph import Graph
-from src.move import *
+from player.move import *
 
 class Maze:
     def __init__(self, path_maze: str):
@@ -13,7 +13,6 @@ class Maze:
             content = file.readline()
             i = 0
             while content and i < self.Row:
-                content = content.strip()
                 for j in range (len(content)):
                     if content[j] == '#':
                         self.map[i][j] = -1
@@ -42,7 +41,7 @@ class Maze:
                         graph.add_edge((i, j), (i, j - 1))
         return graph
 
-    def is_wall(self, move: Move, x: int, y: int) -> bool:
+    def is_wall(self, move: Move, x: int, y: int):
         match move:
             case move.RIGHT:
                 return self.map[x+1][y] == -1
@@ -55,12 +54,12 @@ class Maze:
             case _:
                 return False
 
-    def has_pellot(self, x: int, y: int) -> bool:
+    def has_pellet(self, x: int, y: int):
         return self.map[x][y] == 1
 
-    def eat_pellot(self, x: int, y: int):
+    def eat_pellet(self, x: int, y: int):
         if self.map[x][y] == 1:
             self.map[x][y] = 0
 
-    def get_tile(self, x: int, y: int) -> int:
+    def get_tile(self, x: int, y: int):
         return self.map[x][y]
